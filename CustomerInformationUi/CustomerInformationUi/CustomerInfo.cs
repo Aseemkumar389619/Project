@@ -107,10 +107,7 @@ namespace CustomerInformationUi
 
         private void showRichTextBox_TextChanged(object sender, EventArgs e)
         {
-            
-            
-           
-            
+            MessageBox.Show(saveButton.Text);
         }
     }
 }
