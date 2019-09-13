@@ -1,7 +1,0 @@
-E:\Project\Aseem\InformaitionSystem\InformaitionSystem\bin\Debug\InformaitionSystem.exe.config
-E:\Project\Aseem\InformaitionSystem\InformaitionSystem\bin\Debug\InformaitionSystem.exe
-E:\Project\Aseem\InformaitionSystem\InformaitionSystem\bin\Debug\InformaitionSystem.pdb
-E:\Project\Aseem\InformaitionSystem\InformaitionSystem\obj\Debug\InformaitionSystem.csprojAssemblyReference.cache
-E:\Project\Aseem\InformaitionSystem\InformaitionSystem\obj\Debug\InformaitionSystem.csproj.CoreCompileInputs.cache
-E:\Project\Aseem\InformaitionSystem\InformaitionSystem\obj\Debug\InformaitionSystem.exe
-E:\Project\Aseem\InformaitionSystem\InformaitionSystem\obj\Debug\InformaitionSystem.pdb
