@@ -144,10 +144,10 @@
             // 
             this.orderComboBox.FormattingEnabled = true;
             this.orderComboBox.Items.AddRange(new object[] {
-            "Black",
-            "Cold",
-            "Hot",
-            "Regular",
+            "Black Coffee - 120 Tk",
+            "Cold Coffee - 100 Tk",
+            "Hot Coffee - 90 Tk",
+            "Regular Coffee - 80 Tk",
             "None"});
             this.orderComboBox.Location = new System.Drawing.Point(230, 235);
             this.orderComboBox.Name = "orderComboBox";

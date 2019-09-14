@@ -64,30 +64,30 @@ namespace CustomerInformationUi
                 ordr = "None";
             }
 
-            else if (orderComboBox.Text == "Black")
+            else if (orderComboBox.Text == "Black Coffee - 120 Tk")
             {
-                ordr = "Black";
+                ordr = "Black Coffee - 120 Tk";
                 price = 120 * qntt;
                 prc = price;
 
             }
-            else if (orderComboBox.Text == "Cold")
+            else if (orderComboBox.Text == "Cold Coffee - 100 Tk")
             {
-                ordr = "Cold";
+                ordr = "Cold Coffee - 100 Tk";
                 price = 100 * qntt;
                 prc = price;
 
             }
-            else if (orderComboBox.Text == "Hot")
+            else if (orderComboBox.Text == "Hot Coffee - 90 Tk")
             {
-                ordr = "Hot";
+                ordr = "Hot Coffee - 90 Tk";
                 price = 90 * qntt;
                 prc = price;
 
             }
-            else if (orderComboBox.Text == "Regular")
+            else if (orderComboBox.Text == "Regular Coffee - 80 Tk")
             {
-                ordr = "Regular";
+                ordr = "Regular Coffee - 80 Tk";
                 price = 80 * qntt;
                 prc = price;
 
@@ -100,14 +100,15 @@ namespace CustomerInformationUi
         private void saveButton_Click(object sender, EventArgs e)
         {
             
-            MessageBox.Show ("Customer Name : "+nm +"\n"+"Contact No : "+ cntct +"\n"+ "Address : " +
+            showRichTextBox.Text= ("Customer Name : "+nm +"\n"+"Contact No : "+ cntct +"\n"+ "Address : " +
                 add + "\n" + "Order : " +ordr +"\n"+"Quantity : "+ qntt.ToString() 
                 + "\n"+"Price : "+prc.ToString());
         }
 
         private void showRichTextBox_TextChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(saveButton.Text);
+
+
         }
     }
 }
