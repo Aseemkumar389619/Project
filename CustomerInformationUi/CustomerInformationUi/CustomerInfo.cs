@@ -12,12 +12,16 @@ namespace CustomerInformationUi
 {
     public partial class customerInfo : Form
     {
-        int qntt;
-        string add = "";
-        string nm = "";
-        string cntct = "";
-        string ordr = "";
-        int prc;
+
+        int [] quantity =new int [10];
+        string []address =new string[10];
+        string []name = new string[10];
+        string []contact =new string[10];
+        string []order =new string[10];
+        int []price=new int [10];
+        int index = 0;
+        int p = 0;
+        
 
 
         public customerInfo()
@@ -25,71 +29,37 @@ namespace CustomerInformationUi
             InitializeComponent();
         }
 
-        private void customerNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            string name = customerNameTextBox.Text;
-            nm = name;
 
-
-        }
-
-        private void contactNoTextBox_TextChanged(object sender, EventArgs e)
-        {
-            string contact = contactNoTextBox.Text;
-
-            cntct = contact;
-        }
-
-        private void addressTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-            string address = addressTextBox.Text;
-            add = address;
-
-
-        }
-
-        private void quantityTextBox_TextChanged(object sender, EventArgs e)
-        {
-            int quantity = Int32.Parse(quantityTextBox.Text);
-            qntt = quantity;
-
-
-        }
 
         private void orderComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {  int price = 0;
-            if (orderComboBox.Text == "None")
-            {
-                ordr = "None";
-            }
+        {
+            
 
-            else if (orderComboBox.Text == "Black Coffee - 120 Tk")
+            if (orderComboBox.Text == "Black Coffee - 120 Tk")
             {
-                ordr = "Black Coffee - 120 Tk";
-                price = 120 * qntt;
-                prc = price;
+                order[index++] = "Black Coffee - 120 Tk";
+                p = 120;
+                
 
             }
             else if (orderComboBox.Text == "Cold Coffee - 100 Tk")
             {
-                ordr = "Cold Coffee - 100 Tk";
-                price = 100 * qntt;
-                prc = price;
+                order[index++] = "Cold Coffee - 100 Tk";
+                p = 100;
+               
 
             }
             else if (orderComboBox.Text == "Hot Coffee - 90 Tk")
             {
-                ordr = "Hot Coffee - 90 Tk";
-                price = 90 * qntt;
-                prc = price;
-
+                order[index++] = "Hot Coffee - 90 Tk";
+                p = 90;
+                
             }
             else if (orderComboBox.Text == "Regular Coffee - 80 Tk")
             {
-                ordr = "Regular Coffee - 80 Tk";
-                price = 80 * qntt;
-                prc = price;
+                order[index++] = "Regular Coffee - 80 Tk";
+                p = 80;
+               
 
             }
 
@@ -99,16 +69,35 @@ namespace CustomerInformationUi
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            name[index] = customerNameTextBox.Text;
+            customerNameTextBox.Text = "";
+            contact[index] = contactNoTextBox.Text;
+            contactNoTextBox.Text = "";
+            address[index] = addressTextBox.Text;
+            addressTextBox.Text = "";
+            quantity[index] = Convert.ToInt32(quantityTextBox.Text);
+            quantityTextBox.Text = "";
+            order[index] = orderComboBox.Text;
+            orderComboBox.Text = "";
+            price[index++] = p;
+
             
-            showRichTextBox.Text= ("Customer Name : "+nm +"\n"+"Contact No : "+ cntct +"\n"+ "Address : " +
-                add + "\n" + "Order : " +ordr +"\n"+"Quantity : "+ qntt.ToString() 
-                + "\n"+"Price : "+prc.ToString());
         }
 
-        private void showRichTextBox_TextChanged(object sender, EventArgs e)
+        private void showButton_Click(object sender, EventArgs e)
         {
 
+            string allIinfo = "";
 
+            int i = 0;
+            while (i < name.Length && name[i] != null)
+            {
+                allIinfo += "Name     : " + name[i] + "\n" + "Contact  : " + contact[i] + "\n" + "Address  : " + address[i] + "\n" +
+                    "Quntity    : " + quantity[i] + "\n" + "Order      : " + order[i]+"\n" +"Price : "+price[i]+ "\n\n";
+                i++;
+            }
+
+            showRichTextBox.Text = allIinfo;
         }
     }
 }

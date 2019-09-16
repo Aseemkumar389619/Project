@@ -41,6 +41,7 @@
             this.showRichTextBox = new System.Windows.Forms.RichTextBox();
             this.orderComboBox = new System.Windows.Forms.ComboBox();
             this.quantityTextBox = new System.Windows.Forms.TextBox();
+            this.showButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // customerLabel
@@ -67,7 +68,6 @@
             this.customerNameTextBox.Name = "customerNameTextBox";
             this.customerNameTextBox.Size = new System.Drawing.Size(209, 20);
             this.customerNameTextBox.TabIndex = 2;
-            this.customerNameTextBox.TextChanged += new System.EventHandler(this.customerNameTextBox_TextChanged);
             // 
             // Contact
             // 
@@ -84,7 +84,6 @@
             this.contactNoTextBox.Name = "contactNoTextBox";
             this.contactNoTextBox.Size = new System.Drawing.Size(209, 20);
             this.contactNoTextBox.TabIndex = 4;
-            this.contactNoTextBox.TextChanged += new System.EventHandler(this.contactNoTextBox_TextChanged);
             // 
             // Address
             // 
@@ -129,7 +128,6 @@
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(209, 20);
             this.addressTextBox.TabIndex = 10;
-            this.addressTextBox.TextChanged += new System.EventHandler(this.addressTextBox_TextChanged);
             // 
             // showRichTextBox
             // 
@@ -138,7 +136,6 @@
             this.showRichTextBox.Size = new System.Drawing.Size(191, 254);
             this.showRichTextBox.TabIndex = 14;
             this.showRichTextBox.Text = "";
-            this.showRichTextBox.TextChanged += new System.EventHandler(this.showRichTextBox_TextChanged);
             // 
             // orderComboBox
             // 
@@ -161,13 +158,23 @@
             this.quantityTextBox.Name = "quantityTextBox";
             this.quantityTextBox.Size = new System.Drawing.Size(209, 20);
             this.quantityTextBox.TabIndex = 16;
-            this.quantityTextBox.TextChanged += new System.EventHandler(this.quantityTextBox_TextChanged);
+            // 
+            // showButton
+            // 
+            this.showButton.Location = new System.Drawing.Point(364, 298);
+            this.showButton.Name = "showButton";
+            this.showButton.Size = new System.Drawing.Size(75, 23);
+            this.showButton.TabIndex = 17;
+            this.showButton.Text = "Show";
+            this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
             // customerInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.showButton);
             this.Controls.Add(this.quantityTextBox);
             this.Controls.Add(this.orderComboBox);
             this.Controls.Add(this.showRichTextBox);
@@ -203,6 +210,7 @@
         private System.Windows.Forms.RichTextBox showRichTextBox;
         private System.Windows.Forms.ComboBox orderComboBox;
         private System.Windows.Forms.TextBox quantityTextBox;
+        private System.Windows.Forms.Button showButton;
     }
 }
 
