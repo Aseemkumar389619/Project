@@ -27,42 +27,6 @@ namespace CustomerInformationUi
         public customerInfo()
         {
             InitializeComponent();
-        }
-
-
-
-        private void orderComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-
-            if (orderComboBox.Text == "Black Coffee - 120 Tk")
-            {
-                order[index++] = "Black Coffee - 120 Tk";
-                p = 120;
-                
-
-            }
-            else if (orderComboBox.Text == "Cold Coffee - 100 Tk")
-            {
-                order[index++] = "Cold Coffee - 100 Tk";
-                p = 100;
-               
-
-            }
-            else if (orderComboBox.Text == "Hot Coffee - 90 Tk")
-            {
-                order[index++] = "Hot Coffee - 90 Tk";
-                p = 90;
-                
-            }
-            else if (orderComboBox.Text == "Regular Coffee - 80 Tk")
-            {
-                order[index++] = "Regular Coffee - 80 Tk";
-                p = 80;
-               
-
-            }
-
         } 
 
         
