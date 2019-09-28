@@ -1,0 +1,29 @@
+CREATE DATABASE CoffeeShop
+USE CoffeeShop
+
+CREATE TABLE Customers(
+ID INT IDENTITY(1,1),
+Name VARCHAR(30),
+Address VARCHAR(100),
+Contact INT
+)
+
+SELECT * FROM Customers
+
+CREATE TABLE Items(
+ID INT IDENTITY(1,1),
+Name VARCHAR(30),
+Price INT
+)
+
+SELECT * FROM Items
+
+CREATE TABLE Orders(
+ID INT IDENTITY(1,1),
+Customer VARCHAR(30),
+Item VARCHAR(30),
+Quantity INT,
+Price INT
+)
+
+SELECT * FROM Orders
