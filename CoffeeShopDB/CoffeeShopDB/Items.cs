@@ -20,35 +20,37 @@ namespace CoffeeShopDB
 
         private void addButton_Click(object sender, EventArgs e)
         {
+           
             AddCustomer();
         }
-        private void AddCustomer()
-        {
-            try
-            {
-                string connectionString = @"server =DESKTOP-61R9QU6; Database=CoffeeShop; Integrated Security=true";
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-
-                string commandString = @"INSERT INTO Items(Name,Price) VALUES ('" + nameTextBox.Text + "'," + priceTextBox.Text + ")";
-                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();
-
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-            }
-            catch(Exception Exception)
-            {
-                MessageBox.Show(Exception.Message);
-            }
-        }
-
+        
         private void showButton_Click(object sender, EventArgs e)
         {
             ShowItems();
         }
+       
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            DeleteItems();
+        }
+        
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            UpdateItems();
+        }
+        
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            SearchItems();
+        }
+        
+        private void AddCustomer()
+        {
+            
+        }
         private void ShowItems()
-        { 
+        {
             try
             {
                 string connectionString = @"server =DESKTOP-61R9QU6; Database=CoffeeShop; Integrated Security=true";
@@ -66,15 +68,10 @@ namespace CoffeeShopDB
 
                 sqlConnection.Close();
             }
-            catch(Exception Exception)
+            catch (Exception Exception)
             {
                 MessageBox.Show(Exception.Message);
             }
-        }
-
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            DeleteItems();
         }
         private void DeleteItems()
         {
@@ -91,15 +88,10 @@ namespace CoffeeShopDB
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
             }
-            catch(Exception Exception)
+            catch (Exception Exception)
             {
                 MessageBox.Show(Exception.Message);
             }
-        }
-
-        private void updateButton_Click(object sender, EventArgs e)
-        {
-            UpdateItems();
         }
         private void UpdateItems()
         {
@@ -116,15 +108,10 @@ namespace CoffeeShopDB
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
             }
-            catch(Exception Exception)
+            catch (Exception Exception)
             {
                 MessageBox.Show(Exception.Message);
             }
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-
         }
         private void SearchItems()
         {
@@ -143,7 +130,7 @@ namespace CoffeeShopDB
                 sqlDataAdapter.Fill(dataTable);
                 showDataGridView.DataSource = dataTable;
             }
-            catch(Exception Exception)
+            catch (Exception Exception)
             {
                 MessageBox.Show(Exception.Message);
             }

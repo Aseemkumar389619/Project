@@ -22,6 +22,30 @@ namespace CoffeeShopDB
         {
             AddCustomer();
         }
+       
+        private void showButton_Click(object sender, EventArgs e)
+        {
+            ShowCustomers();
+        }
+        
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            DeleteCustomers();
+
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            UpdateCustomers();
+        }
+        
+
+        private void searchButton_Click(object sender, EventArgs e)
+        
+        {
+            SearchCustomers();
+        }
+            
         private void AddCustomer()
         {
             try
@@ -30,18 +54,11 @@ namespace CoffeeShopDB
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
 
-                string commandString = @"INSERT INTO Orders(Customer,Item,Quantity,Price) VALUES ('" + customerTextBox.Text + "','" + itemTextBox.Text + "'," + quantityTextBox.Text + ","+priceTextBox.Text+")";
+                string commandString = @"INSERT INTO Orders(Customer,Item,Quantity,Price) VALUES ('" + customerTextBox.Text + "','" + itemTextBox.Text + "'," + quantityTextBox.Text + "," + priceTextBox.Text + ")";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
-                //foreach (string name in names)
-                //    {
-                //        if (name == nameTextBox.Text)
-                //      {
-                //           MessageBox.Show("dublicate id");
-                //            return;
-                //      }
-                //    }
 
-                    sqlConnection.Open();
+
+                sqlConnection.Open();
 
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
@@ -50,11 +67,6 @@ namespace CoffeeShopDB
             {
                 MessageBox.Show(Exception.Message);
             }
-        }
-
-        private void showButton_Click(object sender, EventArgs e)
-        {
-            ShowCustomers();
         }
         private void ShowCustomers()
         {
@@ -80,13 +92,6 @@ namespace CoffeeShopDB
                 MessageBox.Show(Exception.Message);
             }
         }
-
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            DeleteCustomers();
-
-        }
-
         private void DeleteCustomers()
         {
             try
@@ -107,11 +112,6 @@ namespace CoffeeShopDB
                 MessageBox.Show(Exception.Message);
             }
         }
-
-        private void updateButton_Click(object sender, EventArgs e)
-        {
-            UpdateCustomers();
-        }
         private void UpdateCustomers()
         {
             try
@@ -119,7 +119,7 @@ namespace CoffeeShopDB
                 string connectionString = @"server =DESKTOP-61R9QU6; Database=CoffeeShop; Integrated Security=true";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
-                string commandString = @"UPDATE Customers SET Customer='" + customerTextBox.Text + "',Item='" + itemTextBox.Text + "',Quantity=" + quantityTextBox.Text + ","+priceTextBox.Text+" WHERE ID=" + idTextBox.Text + "";
+                string commandString = @"UPDATE Customers SET Customer='" + customerTextBox.Text + "',Item='" + itemTextBox.Text + "',Quantity=" + quantityTextBox.Text + "," + priceTextBox.Text + " WHERE ID=" + idTextBox.Text + "";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -133,36 +133,30 @@ namespace CoffeeShopDB
                 MessageBox.Show(Exception.Message);
             }
         }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        
+        private void SearchCustomers()
+        {
+            try
             {
-                SearchCustomers();
+                string connectionString = @"server =DESKTOP-61R9QU6; Database=CoffeeShop; Integrated Security=true";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                string commandString = @"SELECT * FROM Orders WHERE ID=" + idTextBox.Text + "";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                showDataGridView.DataSource = dataTable;
+
+                sqlConnection.Close();
             }
-            private void SearchCustomers()
+            catch (Exception Exception)
             {
-                try
-                {
-                    string connectionString = @"server =DESKTOP-61R9QU6; Database=CoffeeShop; Integrated Security=true";
-                    SqlConnection sqlConnection = new SqlConnection(connectionString);
-
-                    string commandString = @"SELECT * FROM Orders WHERE ID=" + idTextBox.Text + "";
-                    SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                    sqlConnection.Open();
-
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
-                    showDataGridView.DataSource = dataTable;
-
-                    sqlConnection.Close();
-                }
-                catch (Exception Exception)
-                {
-                    MessageBox.Show(Exception.Message);
-                }
+                MessageBox.Show(Exception.Message);
             }
         }
+    }
     }
 
